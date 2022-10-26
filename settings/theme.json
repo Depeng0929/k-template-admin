@@ -1,0 +1,37 @@
+{
+  "header": {
+    "height": 60
+  },
+  "tags": {
+    "visible": true,
+    "height": 50
+  },
+  "naiveThemeOverrides": {
+    "common": {
+      "primaryColor": "#1C4CA0",
+      "primaryColorHover": "#0656A2",
+      "primaryColorPressed": "#0656A2",
+      "primaryColorSuppl": "#0656A2",
+
+      "infoColor": "#2080F0FF",
+      "infoColorHover": "#4098FCFF",
+      "infoColorPressed": "#1060C9FF",
+      "infoColorSuppl": "#4098FCFF",
+
+      "successColor": "#0C7A43FF",
+      "successColorHover": "#A8CF4F",
+      "successColorPressed": "#A8CF52",
+      "successColorSuppl": "#A8CF4F",
+
+      "warningColor": "#F0A020FF",
+      "warningColorHover": "#FCB040FF",
+      "warningColorPressed": "#C97C10FF",
+      "warningColorSuppl": "#FCB040FF",
+
+      "errorColor": "#BD0300",
+      "errorColorHover": "#dc1721",
+      "errorColorPressed": "#FF0909",
+      "errorColorSuppl": "#dc1721"
+    }
+  }
+}
