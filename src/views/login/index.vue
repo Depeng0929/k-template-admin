@@ -2,7 +2,7 @@
   <AppPage :show-footer="true" bg-cover :style="{ backgroundImage: `url(${bgImg})` }">
     <div
       style="transform: translateY(25px)"
-      class="m-auto p-15 f-c-c min-w-345 max-w-700 rounded-10 card-shadow bg-white bg-opacity-60"
+      class="m-auto p-15 f-c-c min-w-345 max-w-700 rounded-10 card-shadow bg-base bg-opacity-60"
     >
       <div w-380 hidden md:block px-20 py-35>
         <img src="@/assets/images/login_banner.webp" w-full alt="login_banner">

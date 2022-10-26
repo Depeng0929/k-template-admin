@@ -1,5 +1,5 @@
 <script setup>
-import { toggleDark } from '@/composables/dark.js'
+import { isDark, toggleDark } from '@/composables/dark.js'
 </script>
 
 <template>

@@ -1,8 +1,14 @@
-import { defineConfig, presetAttributify, presetUno } from 'unocss'
+import { defineConfig, presetAttributify, presetIcons, presetUno } from 'unocss'
 
 export default defineConfig({
   exclude: ['node_modules', '.git', '.github', '.husky', '.vscode', 'build', 'dist', 'mock', 'public', './stats.html'],
-  presets: [presetUno(), presetAttributify()],
+  presets: [
+    presetUno(),
+    presetAttributify(),
+    presetIcons({
+      warn: true,
+    }),
+  ],
   shortcuts: [
     ['wh-full', 'w-full h-full'],
     ['f-c-c', 'flex justify-center items-center'],
@@ -14,16 +20,20 @@ export default defineConfig({
     ['absolute-center', 'absolute-lt f-c-c wh-full'],
     ['text-ellipsis', 'truncate'],
     ['border-base', 'border-gray-200 dark:border-dark-200'],
-    ['bg-base', 'bg-white dark:bg-dark-100'],
+    ['bg-base', 'bg-white dark:bg-dark-normal'],
+    ['bg-base-light', 'bg-gray-50 dark:bg-dark-100'],
     ['color-base', 'text-gray-900 dark:text-gray-300'],
     ['color-fade', 'text-gray-900:50 dark:text-gray-300:50'],
   ],
   rules: [
     [/^bc-(.+)$/, ([, color]) => ({ 'border-color': `#${color}` })],
-    ['card-shadow', { 'box-shadow': '0 1px 2px -2px #00000029, 0 3px 6px #0000001f, 0 5px 12px 4px #00000017' }],
+    ['card-shadow', { 'box-shadow': '0 1px 4px -2px #E0E0E6, 0 3px 6px #0000001f, 0 5px 12px 4px #00000040' }],
   ],
   theme: {
     colors: {
+      dark: {
+        normal: '#26262A',
+      },
       primary: 'var(--primary-color)',
       primary_hover: 'var(--primary-color-hover)',
       primary_pressed: 'var(--primary-color-pressed)',

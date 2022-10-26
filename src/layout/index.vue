@@ -12,10 +12,10 @@
     </n-layout-sider>
 
     <article flex-1 flex-col overflow-hidden>
-      <header bg-white px-15 border-b bc-eee flex items-center :style="`height: ${header.height}px`">
+      <header bg-base px-15 border-base border-b flex items-center :style="`height: ${header.height}px`">
         <AppHeader />
       </header>
-      <section v-if="tags.visible" border-b bc-eee>
+      <section v-if="tags.visible" border-b border-base>
         <AppTags :style="{ height: `${tags.height}px` }" />
       </section>
       <section flex-1 overflow-hidden>

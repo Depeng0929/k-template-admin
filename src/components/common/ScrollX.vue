@@ -1,5 +1,5 @@
 <template>
-  <div ref="wrapper" class="wrapper" @mousewheel.prevent="handleMouseWheel">
+  <div ref="wrapper" class="wrapper bg-base" @mousewheel.prevent="handleMouseWheel">
     <template v-if="showArrow && isOverflow">
       <div class="left" @click="handleMouseWheel({ wheelDelta: 120 })">
         <icon-ic:baseline-keyboard-arrow-left />
@@ -93,7 +93,6 @@ onBeforeUnmount(() => {
 <style lang="scss" scoped>
 .wrapper {
   display: flex;
-  background-color: #fff;
 
   z-index: 9;
   overflow: hidden;

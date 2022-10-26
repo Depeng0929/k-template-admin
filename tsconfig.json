@@ -4,7 +4,8 @@
     "baseUrl": "./",
     "jsx": "preserve",
     "types": [
-      "vite/client"
+      "vite/client",
+      "naive-ui/volar"
     ],
     "paths": {
       "~/*": ["./*"],

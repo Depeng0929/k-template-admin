@@ -1,6 +1,6 @@
 <template>
   <CommonPage>
-    <div h-60 pl-20 pr-20 flex items-center bg-white>
+    <div h-60 pl-20 pr-20 flex items-center bg-base>
       <input
         v-model="post.title"
         class="flex-1 pt-15 pb-15 mr-20 text-20 font-bold color-primary"

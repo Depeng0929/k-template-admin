@@ -1,5 +1,5 @@
 <template>
-  <n-config-provider wh-full :theme-overrides="naiveThemeOverrides">
+  <n-config-provider wh-full :theme-overrides="naiveThemeOverrides" :theme="theme">
     <n-loading-bar-provider>
       <n-dialog-provider>
         <n-notification-provider>
@@ -15,11 +15,16 @@
 
 <script setup>
 import { defineComponent, h } from 'vue'
-import { useDialog, useLoadingBar, useMessage, useNotification } from 'naive-ui'
+import { darkTheme, lightTheme, useDialog, useLoadingBar, useMessage, useNotification } from 'naive-ui'
 import { useCssVar } from '@vueuse/core'
 import { kebabCase } from 'lodash-es'
 import { setupDialog, setupMessage } from '@/utils'
 import { naiveThemeOverrides } from '~/settings'
+import { isDark } from '~/src/composables/dark.js'
+
+const theme = computed(() => {
+  return isDark.value ? darkTheme : lightTheme
+})
 
 function setupCssVar() {
   const common = naiveThemeOverrides.common
