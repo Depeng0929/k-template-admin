@@ -98,6 +98,46 @@ onMounted(() => {
   $table.value?.handleSearch()
 })
 
+// 选中事件
+function onChecked(rowKeys) {
+  if (rowKeys.length)
+    $message.info(`选中${rowKeys.join(' ')}`)
+}
+
+// 发布
+function handlePublish(row) {
+  if (isNullOrUndef(row.id))
+    return
+
+  row.publishing = true
+  setTimeout(() => {
+    row.isPublish = !row.isPublish
+    row.publishing = false
+    $message?.success(row.isPublish ? '已发布' : '已取消发布')
+  }, 1000)
+}
+
+const {
+  modalVisible,
+  modalAction,
+  modalTitle,
+  modalLoading,
+  handleAdd,
+  handleDelete,
+  handleEdit,
+  handleView,
+  handleSave,
+  modalForm,
+  modalFormRef,
+} = useCRUD({
+  name: '文章',
+  initForm: { author: '大脸怪' },
+  doCreate: api.addPost,
+  doDelete: api.deletePost,
+  doUpdate: api.updatePost,
+  refresh: () => $table.value?.handleSearch(),
+})
+
 const columns = [
   { type: 'selection', fixed: 'left' },
   {
@@ -178,44 +218,4 @@ const columns = [
     },
   },
 ]
-
-// 选中事件
-function onChecked(rowKeys) {
-  if (rowKeys.length)
-    $message.info(`选中${rowKeys.join(' ')}`)
-}
-
-// 发布
-function handlePublish(row) {
-  if (isNullOrUndef(row.id))
-    return
-
-  row.publishing = true
-  setTimeout(() => {
-    row.isPublish = !row.isPublish
-    row.publishing = false
-    $message?.success(row.isPublish ? '已发布' : '已取消发布')
-  }, 1000)
-}
-
-const {
-  modalVisible,
-  modalAction,
-  modalTitle,
-  modalLoading,
-  handleAdd,
-  handleDelete,
-  handleEdit,
-  handleView,
-  handleSave,
-  modalForm,
-  modalFormRef,
-} = useCRUD({
-  name: '文章',
-  initForm: { author: '大脸怪' },
-  doCreate: api.addPost,
-  doDelete: api.deletePost,
-  doUpdate: api.updatePost,
-  refresh: () => $table.value?.handleSearch(),
-})
 </script>

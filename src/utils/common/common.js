@@ -26,7 +26,9 @@ export function throttle(fn, wait) {
 
   return function () {
     const now = +new Date()
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     context = this
+    // eslint-disable-next-line prefer-rest-params
     args = arguments
     if (now - previous > wait) {
       fn.apply(context, args)
@@ -45,6 +47,7 @@ export function throttle(fn, wait) {
 export function debounce(method, wait, immediate) {
   let timeout
   return function (...args) {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     const context = this
     if (timeout)
       clearTimeout(timeout)

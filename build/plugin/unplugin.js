@@ -22,8 +22,10 @@ export default [
   DefineOptions(),
   AutoImport({
     imports: ['vue', 'vue-router', '@vueuse/core'],
+    eslintrc: {
+      enabled: true,
+    },
     dts: true,
-    vueTemplate: true,
   }),
   Icons({
     compiler: 'vue3',
@@ -35,7 +37,7 @@ export default [
   }),
   Components({
     resolvers: [NaiveUiResolver(), IconsResolver({ customCollections: ['custom'], componentPrefix: 'icon' })],
-    dts: false,
+    dts: true,
   }),
   createSvgIconsPlugin({
     iconDirs: [customIconPath],

@@ -37,6 +37,15 @@ const content = ref(null)
 const wrapper = ref(null)
 const isOverflow = ref(false)
 
+const resetTranslateX = debounce((wrapperWidth, contentWidth) => {
+  if (!isOverflow.value)
+    translateX.value = 0
+  else if (-translateX.value > contentWidth - wrapperWidth)
+    translateX.value = wrapperWidth - contentWidth
+  else if (translateX.value > 0)
+    translateX.value = 0
+}, 200)
+
 const refreshIsOverflow = debounce(() => {
   const wrapperWidth = wrapper.value?.offsetWidth
   const contentWidth = content.value?.offsetWidth
@@ -66,15 +75,6 @@ function handleMouseWheel(e) {
   translateX.value += wheelDelta
   resetTranslateX(wrapperWidth, contentWidth)
 }
-
-const resetTranslateX = debounce((wrapperWidth, contentWidth) => {
-  if (!isOverflow.value)
-    translateX.value = 0
-  else if (-translateX.value > contentWidth - wrapperWidth)
-    translateX.value = wrapperWidth - contentWidth
-  else if (translateX.value > 0)
-    translateX.value = 0
-}, 200)
 
 const observer = new MutationObserver(refreshIsOverflow)
 onMounted(() => {

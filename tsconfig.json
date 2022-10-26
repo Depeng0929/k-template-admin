@@ -1,11 +1,16 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "baseUrl": "./",
+    "jsx": "preserve",
+    "types": [
+      "vite/client"
+    ],
     "paths": {
       "~/*": ["./*"],
       "@/*": ["src/*"]
-    },
-    "jsx": "preserve"
+    }
   },
   "exclude": ["dist", "node_modules"]
 }
+
